@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Tree Landing Page</title>
+    <style>
+      :root {
+        --tree-brown: #5d4037;
+        --leaf-green: #4caf50;
+        --hover-green: #81c784;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0fdf4; /* Light nature-themed background */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .tree-container {
+        position: relative;
+        width: 600px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      /* The Main Tree Image */
+      .tree-base-img {
+        width: 100%;
+        height: auto;
+        z-index: 1;
+      }
+
+      /* Styling the Branch Options */
+      .branch-option {
+        position: absolute;
+        z-index: 10;
+        background: white;
+        padding: 10px 18px;
+        border-radius: 50px;
+        text-decoration: none;
+        color: var(--tree-brown);
+        font-weight: bold;
+        font-size: 14px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 2px solid var(--leaf-green);
+        white-space: nowrap;
+      }
+
+      .branch-option:hover {
+        transform: scale(1.1) translateY(-5px);
+        background-color: var(--leaf-green);
+        color: white;
+        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+      }
+
+      /* Specific Placements based on your image layout */
+      /* You can adjust these % values to perfectly match your final image */
+
+      .opt-1 {
+        top: 25%;
+        left: 40%;
+      } /* Top center */
+      .opt-2 {
+        top: 40%;
+        left: 15%;
+      } /* Mid left */
+      .opt-3 {
+        top: 35%;
+        right: 10%;
+      } /* Mid right */
+      .opt-4 {
+        top: 58%;
+        left: 28%;
+      } /* Bottom left */
+      .opt-5 {
+        top: 50%;
+        right: 15%;
+      } /* Bottom right */
+
+      /* Pulsing animation for a "living" feel */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .branch-option {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      /* Offset the animation so they don't move in sync */
+      .opt-2 {
+        animation-delay: 1s;
+      }
+      .opt-3 {
+        animation-delay: 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tree-container">
+      <img src="tree.png" alt="Tree" class="tree-base-img" />
+
+      <a href="#fundamentals" class="branch-option opt-1">Fundamentals</a>
+      <a href="#practice" class="branch-option opt-2">Practice Period</a>
+      <a href="#advanced" class="branch-option opt-3">Advanced Skills</a>
+      <a href="#mentorship" class="branch-option opt-4">Mentorship</a>
+      <a href="#certification" class="branch-option opt-5">Certification</a>
+    </div>
+  </body>
+</html>
